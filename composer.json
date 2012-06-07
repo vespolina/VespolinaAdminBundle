@@ -1,0 +1,29 @@
+{
+    "name": "vespolina/admin-bundle",
+    "type": "symfony-bundle",
+    "description": "Vespolina Admin bundle. Admin management and more.",
+    "keywords": ["shop", "ecommerce", "admin", "item"],
+    "homepage": "http://vespolina-project.org",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vespolina Team",
+            "homepage": "https://github.com/vespolina/VespolinaAdminBundle/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/framework-bundle": "2.*",
+        "symfony/security-bundle": "2.*"
+    },
+    "suggest": {
+        "symfony/doctrine-bundle": "*",
+        "symfony/mongodb-odm-bundle": "*",
+        "doctrine/couchdb-odm-bundle": "*"
+    },
+    "autoload": {
+        "psr-0": { "Vespolina\\AdminBundle": "" }
+    },
+    "target-dir": "Vespolina/AdminBundle"
+}
+
