@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="vespolina.admin.admin_controller.class">Vespolina\AdminBundle\Controller\Admin\AdminController</parameter>
+        <parameter key="vespolina.admin.dashboard_controller.class">Vespolina\AdminBundle\Controller\Dashboard\DashboardController</parameter>
+        <parameter key="vespolina.admin.sales_controller.class">Vespolina\AdminBundle\Controller\Sales\SalesController</parameter>
+    </parameters>
+    <services>
+        <service id="vespolina.admin.admin_controller" class="%vespolina.admin.admin_controller.class%">
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+        <service id="vespolina.admin.dashboard_controller" class="%vespolina.admin.dashboard_controller.class%">
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+        <service id="vespolina.admin.sales_controller" class="%vespolina.admin.sales_controller.class%">
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+    </services>
+</container>
