@@ -19,30 +19,13 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('vespolina_Admin');
+        $rootNode = $treeBuilder->root('vespolina_admin');
         $rootNode
             ->children()
             ->scalarNode('db_driver')->cannotBeOverwritten()->isRequired()->cannotBeEmpty()->end()
             ->end();
-        $this->addAdminMethodsSection($rootNode);
 
         return $treeBuilder;
     }
 
-    protected function addAdminMethodsSection(ArrayNodeDefinition $node)
-    {
-        $node->children()
-            ->arrayNode('Admin_methods')
-            ->children()
-                ->arrayNode('shipment')
-                    ->prototype('array')
-                    ->children()
-                        ->scalarNode('class')->end()
-                    ->end()
-                ->end()
-            ->end()
-            ->end()
-            ->end();
-
-    }
 }
