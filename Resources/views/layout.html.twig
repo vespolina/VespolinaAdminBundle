@@ -6,7 +6,7 @@
     <div class="container">
       <a class="brand" href="{{ path('vespolina_admin_start') }}"><img src="{{ asset('bundles/vespolinastore/images/vespolina-logo-nav.png')}}" alt="Vespolina"/> Back Office</a>
       <ul class="nav">
-        <li class="active"><a href="{{ path('homepage') }}">Admin</a></li>
+        <li class="active"><a href="{{ path('vespolina_admin_start') }}">Admin</a></li>
 
         <li><a href="{{ path('vespolina_admin_sales') }}">Sales</a></li>
 
@@ -16,7 +16,7 @@
                 {% render "VespolinaStoreBundle:Customer:navBar" %}
             {% endblock %}
             {% block cart_quick_inspection %}
-                {% render "VespolinaCartBundle:Default:navBar" %}
+                {#{% render "VespolinaCommerceBundle:Default:navBar" %}#}
             {% endblock %}
       </ul>
     </div>
@@ -34,7 +34,7 @@
 
                 {% block navigation %}
                 <ul class="breadcrumb">
-                    <li><a href="{{ path('homepage') }}">Home</a> <span class="divider">/</span></li>
+                    <li><a href="{{ path('vespolina_admin_start') }}">Home</a> <span class="divider">/</span></li>
                     <li class="active">You are here</li>
                 </ul>
                 {% endblock %}
