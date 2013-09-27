@@ -20,7 +20,7 @@ class ConfigurationTest extends AbstractConfigurationTestCase
     }
 
     /** @test */
-    public function the_api_key_value_is_required()
+    public function the_configuration_db_driver_is_required()
     {
         $this->assertConfigurationIsInvalid(
             array(
