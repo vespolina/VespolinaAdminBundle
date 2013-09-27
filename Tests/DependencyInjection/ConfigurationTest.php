@@ -29,4 +29,20 @@ class ConfigurationTest extends AbstractConfigurationTestCase
             'db_driver' // exception message should contain "key"
         );
     }
+
+    /** @test */
+    public function it_keeps_the_last_provided_api_key()
+    {
+        $value = 'odm';
+
+        $this->assertProcessedConfigurationEquals(
+            array(
+                array('db_driver' => 'this value will be overwritten'),
+                array('db_driver' => $value)
+            ),
+            array(
+                'db_driver'=> $value
+            )
+        );
+    }
 }
