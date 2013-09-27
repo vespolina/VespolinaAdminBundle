@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * (c) 2011-2012 Vespolina Project http://www.vespolina-project.org
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Vespolina\AdminBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
@@ -22,10 +29,10 @@ class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->root('vespolina_admin');
         $rootNode
             ->children()
-            ->scalarNode('db_driver')->cannotBeOverwritten()->isRequired()->cannotBeEmpty()->end()
-            ->end();
+                ->scalarNode('db_driver')->cannotBeOverwritten()->isRequired()->cannotBeEmpty()->end()
+            ->end()
+        ;
 
         return $treeBuilder;
     }
-
 }
