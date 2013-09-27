@@ -24,25 +24,34 @@ class ConfigurationTest extends AbstractConfigurationTestCase
     {
         $this->assertConfigurationIsInvalid(
             array(
-                array() // no configuration values at all
+                array()
             ),
-            'db_driver' // exception message should contain "key"
+            'must be configured'
         );
     }
 
     /** @test */
-    public function it_keeps_the_last_provided_api_key()
+    public function the_configuration_db_driver_cannot_be_empty()
+    {
+        $this->assertConfigurationIsInvalid(
+            array(
+                array('db_driver' => '') // empty value
+            ),
+            'cannot contain an empty value'
+        );
+    }
+
+    /** @test */
+    public function it_fails_when_trying_to_overwrite_db_driver_value()
     {
         $value = 'odm';
 
-        $this->assertProcessedConfigurationEquals(
+        $this->assertConfigurationIsInvalid(
             array(
-                array('db_driver' => 'this value will be overwritten'),
+                array('db_driver' => 'orm'),
                 array('db_driver' => $value)
             ),
-            array(
-                'db_driver'=> $value
-            )
+            'cannot be overwritten'
         );
     }
 }
